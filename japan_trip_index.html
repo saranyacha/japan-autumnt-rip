@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🍂 Japan Autumn Road Trip — 23–31 Oct</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=Noto+Sans+Thai:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0D1117;
+  --bg2: #161B22;
+  --bg3: #21262D;
+  --border: rgba(255,255,255,0.08);
+  --border2: rgba(255,255,255,0.14);
+  --text: #E6EDF3;
+  --text2: #8B949E;
+  --text3: #6E7681;
+  --teal: #2DD4A8;
+  --teal-dim: rgba(45,212,168,0.12);
+  --amber: #F5A623;
+  --amber-dim: rgba(245,166,35,0.12);
+  --coral: #FF6B6B;
+  --coral-dim: rgba(255,107,107,0.12);
+  --purple: #A78BFA;
+  --purple-dim: rgba(167,139,250,0.12);
+  --blue: #58A6FF;
+  --blue-dim: rgba(88,166,255,0.12);
+  --green: #56D364;
+  --green-dim: rgba(86,211,100,0.12);
+  --font-sans: 'Noto Sans Thai', sans-serif;
+  --font-serif: 'Noto Serif JP', serif;
+  --font-mono: 'DM Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── TOP HERO ── */
+.hero {
+  background: linear-gradient(135deg, #0D2918 0%, #0D1117 60%);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 16px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 260px; height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(45,212,168,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--teal);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 6vw, 32px);
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+.hero-sub {
+  font-size: 12px;
+  color: var(--text2);
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 100px;
+  border: 1px solid;
+  font-family: var(--font-mono);
+}
+.pill-teal { background: var(--teal-dim); color: var(--teal); border-color: rgba(45,212,168,0.3); }
+.pill-amber { background: var(--amber-dim); color: var(--amber); border-color: rgba(245,166,35,0.3); }
+.pill-coral { background: var(--coral-dim); color: var(--coral); border-color: rgba(255,107,107,0.3); }
+.pill-purple { background: var(--purple-dim); color: var(--purple); border-color: rgba(167,139,250,0.3); }
+
+/* ── NAV TABS ── */
+.tabs {
+  display: flex;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tab {
+  flex-shrink: 0;
+  padding: 10px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text2);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color .2s, border-color .2s;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.tab.active { color: var(--teal); border-bottom-color: var(--teal); }
+.tab:hover:not(.active) { color: var(--text); }
+
+/* ── CONTENT ── */
+.content { padding: 16px; max-width: 680px; margin: 0 auto; }
+.section { display: none; }
+.section.active { display: block; }
+
+/* ── CHECK-IN CARDS ── */
+.hotel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.hotel-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  transition: border-color .2s;
+}
+.hotel-card:hover { border-color: var(--border2); }
+.hotel-city {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.hotel-dates {
+  font-size: 11px;
+  color: var(--text2);
+  margin-bottom: 8px;
+  line-height: 1.5;
+  font-family: var(--font-mono);
+}
+.hotel-nights {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 100px;
+  font-family: var(--font-mono);
+}
+.hn-teal { background: var(--teal-dim); color: var(--teal); }
+.hn-warn { background: var(--coral-dim); color: var(--coral); }
+.hotel-note { font-size: 10px; color: var(--text3); margin-top: 5px; font-style: italic; }
+
+/* ── SECTION LABEL ── */
+.sec-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin: 20px 0 10px;
+}
+
+/* ── DAY CARDS ── */
+.day-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.day-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  user-select: none;
+}
+.day-num {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 600;
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+}
+.day-info { flex: 1; min-width: 0; }
+.day-title { font-size: 13px; font-weight: 600; color: var(--text); }
+.day-meta { font-size: 11px; color: var(--text2); margin-top: 2px; }
+.day-drive {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--amber);
+  background: var(--amber-dim);
+  padding: 2px 8px;
+  border-radius: 100px;
+  flex-shrink: 0;
+  font-weight: 500;
+}
+.chevron {
+  font-size: 16px;
+  color: var(--text3);
+  transition: transform .25s;
+  flex-shrink: 0;
+}
+.day-card.open .chevron { transform: rotate(180deg); }
+
+.day-body { display: none; }
+.day-card.open .day-body { display: block; }
+
+/* ── TIMELINE ── */
+.tl { padding: 8px 14px; }
+.tl-row {
+  display: grid;
+  grid-template-columns: 62px 1fr;
+  min-height: 46px;
+  border-bottom: 1px solid var(--border);
+}
+.tl-row:last-child { border: none; }
+.tl-left {
+  padding: 8px 8px 8px 0;
+  border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; justify-content: center;
+}
+.tl-time { font-size: 11px; font-weight: 500; color: var(--teal); font-family: var(--font-mono); }
+.tl-dur { font-size: 10px; color: var(--text3); font-family: var(--font-mono); }
+.tl-right {
+  padding: 8px 0 8px 12px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.tl-name { font-size: 13px; font-weight: 500; color: var(--text); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.tl-note { font-size: 11px; color: var(--text2); margin-top: 2px; line-height: 1.55; }
+.tl-drive-row {
+  background: rgba(255,255,255,0.03);
+  border-bottom: 1px solid var(--border);
+}
+.tl-drive-row .tl-right { flex-direction: row; align-items: center; gap: 8px; flex-wrap: wrap; }
+.tl-drive-txt { font-size: 11px; color: var(--text2); }
+.tl-drive-dist { font-size: 11px; font-weight: 600; color: var(--amber); font-family: var(--font-mono); }
+
+.rating {
+  font-size: 10px; font-weight: 600;
+  padding: 1px 6px; border-radius: 100px;
+  font-family: var(--font-mono);
+  background: rgba(245,166,35,0.15); color: var(--amber);
+  white-space: nowrap;
+}
+.badge-m { background: var(--purple-dim); color: var(--purple); font-size: 10px; font-weight: 600; padding: 1px 6px; border-radius: 100px; font-family: var(--font-mono); }
+.badge-hot { background: var(--coral-dim); color: var(--coral); font-size: 10px; font-weight: 600; padding: 1px 6px; border-radius: 100px; font-family: var(--font-mono); }
+.badge-warn { background: var(--coral-dim); color: var(--coral); font-size: 10px; font-weight: 600; padding: 1px 6px; border-radius: 100px; }
+
+/* ── FOOD SECTION ── */
+.food-bar {
+  padding: 10px 14px;
+  border-top: 1px solid var(--border);
+  background: rgba(255,255,255,0.02);
+}
+.food-label {
+  font-family: var(--font-mono);
+  font-size: 10px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: .08em;
+  color: var(--text3); margin-bottom: 8px;
+}
+.food-grid { display: flex; flex-direction: column; gap: 6px; }
+.food-item {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+.food-name {
+  font-size: 12px; font-weight: 600;
+  color: var(--text);
+  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+  margin-bottom: 2px;
+}
+.food-desc { font-size: 11px; color: var(--text2); }
+
+/* ── TIPS ── */
+.tips-grid { display: flex; flex-direction: column; gap: 8px; }
+.tip-item {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex; gap: 10px; align-items: flex-start;
+}
+.tip-icon {
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; flex-shrink: 0; margin-top: 1px;
+}
+.tip-body { flex: 1; }
+.tip-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+.tip-desc { font-size: 11px; color: var(--text2); line-height: 1.55; }
+
+/* ── DRIVE SUMMARY ── */
+.drive-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 12px;
+}
+.drive-table th {
+  font-family: var(--font-mono);
+  font-size: 10px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: .07em;
+  color: var(--text3);
+  text-align: left; padding: 6px 8px;
+  border-bottom: 1px solid var(--border);
+}
+.drive-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text2);
+  vertical-align: middle;
+}
+.drive-table tr:last-child td { border: none; }
+.drive-table .day-col { color: var(--teal); font-family: var(--font-mono); font-weight: 500; }
+.drive-table .dist-col { color: var(--amber); font-family: var(--font-mono); font-weight: 600; }
+.drive-table .total-row td { font-weight: 600; color: var(--text); border-top: 1px solid var(--border2); }
+
+/* ── RESPONSIVE ── */
+@media (min-width: 600px) {
+  .content { padding: 20px 24px; }
+  .hero { padding: 36px 24px 28px; }
+  .food-grid { display: grid; grid-template-columns: 1fr 1fr; }
+  .hotel-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+}
+
+/* ── SCROLL ANIMATION ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.day-card { animation: fadeUp .3s ease both; }
+.day-card:nth-child(2) { animation-delay: .04s; }
+.day-card:nth-child(3) { animation-delay: .08s; }
+.day-card:nth-child(4) { animation-delay: .12s; }
+.day-card:nth-child(5) { animation-delay: .16s; }
+
+/* ── FOOTER ── */
+.footer {
+  text-align: center;
+  padding: 24px 16px 32px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text3);
+  border-top: 1px solid var(--border);
+  margin-top: 24px;
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">🍂 Autumn Road Trip 2024</div>
+  <div class="hero-title">Japan<br>Road Trip</div>
+  <div class="hero-sub">Tokyo → Karuizawa → Kawaguchiko → Matsumoto<br>→ Kamikochi → Hirayu Onsen → Takayama → Nagoya</div>
+  <div class="pills">
+    <span class="pill pill-teal">📅 23–31 Oct</span>
+    <span class="pill pill-amber">🚗 Road Trip 7 วัน</span>
+    <span class="pill pill-purple">🌙 9 คืน / 6 เมือง</span>
+    <span class="pill pill-coral">🛣️ ~1,065 km</span>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <button class="tab active" onclick="showTab('hotels')">🏨 Check-in/out</button>
+  <button class="tab" onclick="showTab('day1')">Day 1–2</button>
+  <button class="tab" onclick="showTab('day3')">Day 3–4</button>
+  <button class="tab" onclick="showTab('day5')">Day 5–6</button>
+  <button class="tab" onclick="showTab('day7')">Day 7–8</button>
+  <button class="tab" onclick="showTab('day9')">Day 9</button>
+  <button class="tab" onclick="showTab('food')">🍜 ร้านอาหาร</button>
+  <button class="tab" onclick="showTab('tips')">💡 Tips</button>
+</div>
+
+<!-- ═══════════ CHECK-IN TAB ═══════════ -->
+<div id="hotels" class="section active content">
+  <div class="sec-label">🏨 สรุป Check-in / Check-out</div>
+  <div class="hotel-grid">
+    <div class="hotel-card">
+      <div class="hotel-city">🏙️ Tokyo</div>
+      <div class="hotel-dates">23 Oct เช้า<br>→ 25 Oct บ่าย</div>
+      <span class="hotel-nights hn-teal">🌙 2 คืน</span>
+      <div class="hotel-note">แถว Shinjuku / Shibuya</div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-city">🗻 Kawaguchiko</div>
+      <div class="hotel-dates">25 Oct เย็น<br>→ 26 Oct เช้า</div>
+      <span class="hotel-nights hn-teal">🌙 1 คืน</span>
+      <div class="hotel-note">วิว Mt. Fuji ริมทะเลสาบ</div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-city">🏯 Matsumoto</div>
+      <div class="hotel-dates">26 Oct บ่าย<br>→ 27 Oct เช้า</div>
+      <span class="hotel-nights hn-teal">🌙 1 คืน</span>
+      <div class="hotel-note">ใกล้ปราสาท / Nakamachi</div>
+    </div>
+    <div class="hotel-card" style="border-color: rgba(255,107,107,0.3);">
+      <div class="hotel-city">♨️ Hirayu Onsen</div>
+      <div class="hotel-dates">27 Oct เย็น<br>→ 28 Oct เช้า</div>
+      <span class="hotel-nights hn-warn">⚠️ จองก่อน!</span>
+      <div class="hotel-note">Ryokan Rotenburo กลางแจ้ง</div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-city">🏮 Takayama</div>
+      <div class="hotel-dates">28 Oct เย็น<br>→ 30 Oct เช้า</div>
+      <span class="hotel-nights hn-teal">🌙 2 คืน</span>
+      <div class="hotel-note">Ryokan ใกล้ Sanmachi</div>
+    </div>
+    <div class="hotel-card">
+      <div class="hotel-city">🌆 Nagoya</div>
+      <div class="hotel-dates">30 Oct บ่าย<br>→ 31 Oct เช้า</div>
+      <span class="hotel-nights hn-teal">🌙 1 คืน</span>
+      <div class="hotel-note">แถว Station / Sakae</div>
+    </div>
+  </div>
+
+  <div class="sec-label">🚗 ระยะทางขับรถทั้งทริป</div>
+  <div class="day-card" style="overflow:auto">
+    <table class="drive-table">
+      <thead><tr><th>วัน</th><th>เส้นทาง</th><th>ระยะ</th><th>เวลา</th></tr></thead>
+      <tbody>
+        <tr><td class="day-col">25</td><td>Tokyo → Kawaguchiko</td><td class="dist-col">~100km</td><td>~2 ชม.</td></tr>
+        <tr><td class="day-col">26</td><td>Kawaguchiko → Wasabi Farm → Matsumoto</td><td class="dist-col">~155km</td><td>~2.5 ชม.</td></tr>
+        <tr><td class="day-col">27</td><td>Matsumoto → Kamikochi → Hirayu</td><td class="dist-col">~70km</td><td>~1.5 ชม.</td></tr>
+        <tr><td class="day-col">28</td><td>Hirayu → Furukawa → Gero → Takayama</td><td class="dist-col">~145km</td><td>~2.5 ชม.</td></tr>
+        <tr><td class="day-col">29</td><td>Takayama → Shirakawa-go (ไปกลับ)</td><td class="dist-col">~70km</td><td>~1.5 ชม.</td></tr>
+        <tr><td class="day-col">30</td><td>Takayama → Nagoya</td><td class="dist-col">~150km</td><td>~2 ชม.</td></tr>
+        <tr><td class="day-col">31</td><td>Nagoya → Tokyo (คืนรถ)</td><td class="dist-col">~370km</td><td>~3.5 ชม.</td></tr>
+        <tr class="total-row"><td colspan="2">รวมทั้งทริป</td><td class="dist-col">~1,065km</td><td>~17 ชม.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════ DAY 1-2 TAB ═══════════ -->
+<div id="day1" class="section content">
+
+  <div class="day-card open">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-num" style="background:#1D9E75;color:#fff">1</div>
+      <div class="day-info">
+        <div class="day-title">23 Oct — Tokyo สำรวจ</div>
+        <div class="day-meta">🌙 Tokyo &nbsp;|&nbsp; ยังไม่รับรถ</div>
+      </div>
+      <div class="chevron">▾</div>
+    </div>
+    <div class="day-body">
+      <div class="tl">
+        <div class="tl-row"><div class="tl-left"><span class="tl-time">เช้า</span></div><div class="tl-right"><div class="tl-name">⛩️ Asakusa — Senso-ji</div><div class="tl-note">วัดเก่าแก่ที่สุดใน Tokyo + ตลาด Nakamise ช้อปของฝาก | ฟรี</div></div></div>
+        <div class="tl-row"><div class="tl-left"><span class="tl-time">บ่าย</span></div><div class="tl-right"><div class="tl-name">🚶 Shibuya Crossing + Harajuku</div><div class="tl-note">ทางม้าลายอันดับ 1 ของโลก | เดิน Takeshita Street</div></div></div>
+        <div class="tl-row"><div class="tl-left"><span class="tl-time">เย็น</span></div><div class="tl-right"><div class="tl-name">🌃 Shinjuku ยามค่ำ</div><div class="tl-note">Omoide Yokocho (ซอยหลอดไฟ) | Tokyo Skytree ไฟกลางคืน</div></div></div>
+      </div>
+      <div class="food-bar">
+        <div class="food-label">🍜 อาหาร</div>
+        <div class="food-grid">
+          <div class="food-item"><div class="food-name">Ramen Ichiran Shibuya <span class="badge-hot">⭐ ดัง</span></div><div class="food-desc">เจ้าดัง ระบบนั่งคนเดียว unique มาก | กลางวัน</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card open">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-num" style="background:#0F6E56;color:#fff">2</div>
+      <div class="day-info">
+        <div class="day-title">24 Oct — Karuizawa Day Trip 🚆</div>
+        <div class="day-meta">🌙 Tokyo &nbsp;|&nbsp; Shinkansen ¥6,020/คน ⚠️ จองล่วงหน้า!</div>
+      </div>
+      <div class="day-drive">🚆 ~70 นาที</div>
+      <div class="chevron">▾</div>
+    </div>
+    <div class="day-body">
+      <div class="tl">
+        <div class="tl-row"><div class="tl-left"><span class="tl-time">08:00</span></div><div class="tl-right"><div class="tl-name">🚄 Shinkansen จาก Tokyo Station</div><div class="tl-note">Hokuriku Shinkansen → ถึง Karuizawa 09:10</div></div></div>
+        <div class="tl-row"><div class="tl-left"><span class="tl-time">09:45</span><span class="tl-dur">45 นาที</span></div><div class="tl-right"><div class="tl-name">🌊 Shiraito Waterfall <span class="rating">⭐ 4.2</span></div><div class="tl-note">บัสจาก Station ¥680 | น้ำตก 70m ใบไม้แดงล้อม | ฟรี</div></div></div>
+        <div class="tl-row"><div class="tl-left"><span class="tl-time">11:00</span><span class="tl-dur">60 นาที</span></div><div class="tl-right"><div class="tl-name">🪷 Kumoba Pond <span class="rating">⭐ 4.4</span></div><div class="tl-note">เดิน 20 นาทีจาก Station | ใบไม้แดงสะท้อนน้ำ ช่วง Oct สวยที่สุด | ฟรี</div></div></div>
+        <div class="tl-row"><div class="tl-left"><span class="tl-time">12:15</span><span class="tl-dur">75 นาที</span></div><div class="tl-right"><div class="tl-name">🛍️ Old Karuizawa Ginza Street <span class="rating">⭐ 4.0</span></div><div class="tl-note">French Bakery (John Lennon เคยมา!) | ร้านแยม Sawaya | กินข้าว</div></div></div>
+        <div class="tl-row"><div class="tl-left"><span class="tl-time">13:30</span><span class="tl-dur">2.5 ชม.</span></div><div class="tl-right"><div class="tl-name">🏬 Karuizawa Prince Shopping Plaza <span class="rating">⭐ 4.1</span></div><div class="tl-note">Outlet 200+ ร้าน | เปิด 10:00–19:00 | Coach, Nike, Tory Burch | ⏱️ ช้อป 2.5 ชม.</div></div></div>
+        <div class="tl-row"><div class="tl-left"><span class="tl-time">16:10</span></div><div class="tl-right"><div class="tl-name">🚄 Shinkansen กลับ Tokyo</div><div class="tl-note">~70 นาที ถึง Tokyo ~17:20</div></div></div>
+      </div>
+      <div class="food-bar">
+        <div class="food-label">☕ คาเฟ่</div>
+        <div class="food-grid">
+          <div class="food-item"><div class="food-name">French Bakery</div><div class="food-desc">เบเกอรี่ดั้งเดิม บรรยากาศวินเทจ | ใน Ginza Street</div></div>
+          <div class="food-item"><div class="food-name">Harunire Terrace</div><div class="food-desc">คาเฟ่ Stylish ริมลำธาร Hoshino Area</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ DAY 3-4 TAB ═══════════ -->
+<div id="day3" class="section content">
+
+  <div class="day-card open">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-num" style="background:#1C7293;color:#fff">3</div>
+      <div class="day-info">
+        <div class="day-title">25 Oct — Tokyo → Kawaguchiko 🗻</div>
+        <div class="day-meta">🌙 Kawaguchiko &nbsp;|&nbsp; รับรถช่วงเที่ยง</div>
+      </div>
+      <div class="day-drive">🚗 ~2 ชม.</div>
+      <div class="chevron">▾</div>
+    </div>
+    <div class="day-body">
+      <div class="tl">
+        <div class="tl-row tl-drive-row"><div class="tl-left"><span class="tl-time">12:00</span></div><div class="tl-right"><span class="tl-drive-txt">🚗 Tokyo → Kawaguchiko (Chuo Expressway)</span><span class="tl-drive-dist">~100km / ~2ชม.</span></div></div>
+        <div class="tl-row"><div class="tl-left"><span class="tl-time">14:30</span><span class="tl-dur">60 นาที</span></div><div class="tl-right"><div class="tl-name">🌊 Lake Kawaguchiko <span class="rating">⭐ 4.6</span></div><div class="tl-note">เดินริมทะเลสาบ | วิว Mt. Fuji สะท้อนน้ำ | ใบไม้เปลี่ยนสีรอบๆ</div></div></div>
+        <div class="tl-row tl-drive-row"><div class="tl-left"><span class="tl-time">15:30</span></div><div class="tl-right"><span class="tl-drive-txt">🚗 Lake → Chureito Pagoda</span><span class="tl-drive-dist">~7km / ~15 นาที</span></div></div>
+        <div class="tl-row"><div class="tl-left"><span class="tl-time">16:00</span><span class="tl-dur">90 นาที</span></div><div class="tl-right"><div class="tl-name">⛩️ Chureito Pagoda <span class="rating">⭐ 4.7</span></div><div class="tl-note">ขึ้น 398 ขั้น | วิว Fuji + เจดีย์ 5 ชั้น Iconic มาก | ฟรี | แสงเย็นสวย</div></div></div>
+        <div class="tl-row"><div class="tl-left"><span class="tl-time">18:00</span></div><div class="tl-right"><div class="tl-name">🏨 เช็คอินโรงแรม Kawaguchiko</div></div></div>
+      </div>
+      <div class="food-bar">
+        <div class="food-label">🍜 อาหาร</div>
+        <div class="food-grid">
+          <div class="food-item"><div class="food-name">Hoto Fudo <span class="badge-hot">⭐ ดัง</span></div><div class="food-desc">ก๋วยเตี๋ยวฟักทองร้อนๆ ชาวบ้านดั้งเดิม</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card open">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-num" style="background:#854F0B;color:#fff">4</div>
+      <div class="day-info">
+        <div class="day-title">26 Oct — Wasabi Farm → Matsumoto 🏯</div>
+        <div class="day-meta">🌙 Matsumoto &nbsp;|&nbsp; ปราสาทดำมรดกชาติ</div>
+      </div>
+      <div class="day-drive">🚗 ~2.5 ชม.</div>
+      <div class="chevron">▾</div>
+    </div>
+    <div class="day-body">
+      <div class="tl">
+        <div class="tl-row tl-drive-row"><div class="tl-left"><span class="tl-time">08:30</span></div><div class="tl-right"><span class="tl-drive-txt">🚗 Kawaguchiko → Daio Wasabi Farm</span><span class="tl-drive-dist">~130km / ~2ชม.</span></div></div>
+        <div class="tl-row"><div class="tl-left"><span class="tl-time">10:30</span><span class="tl-dur">2 ชม.</span></div><div class="tl-right"><div class="tl-name">🌿 Daio Wasabi Farm <span class="rating">⭐ 4.0</span></div><div class="tl-note">เข้าฟรี | กังหันน้ำ + คลองใส + ภูเขา | ชิม Wasabi Ice Cream + Croquette</div></div></div>
+        <div class="tl-row tl-drive-row"><div class="tl-left"><span class="tl-time">13:00</span></div><div class="tl-right"><span class="tl-drive-txt">🚗 Wasabi Farm → Matsumoto</span><span class="tl-drive-dist">~25km / ~30 นาที</span></div></div>
+        <div class="tl-row"><div class="tl-left"><span class="tl-time">14:00</span><span class="tl-dur">90 นาที</span></div><div class="tl-right"><div class="tl-name">🏯 Matsumoto Castle <span class="rating">⭐ 4.5</span></div><div class="tl-note">เปิด 08:30–16:30 | ¥700 | ปราสาทดำมรดกชาติ | ใบไม้เปลี่ยนสีล้อมรอบ</div></div></div>
+        <div class="tl-row"><div class="tl-left"><span class="tl-time">16:00</span><span class="tl-dur">60 นาที</span></div><div class="tl-right"><div class="tl-name">🚶 Nawate + Nakamachi Street</div><div class="tl-note">ถนน Edo ริมแม่น้ำ | ของฝาก Lacquerware | เดินเล่นเย็นๆ</div></div></div>
+      </div>
+      <div class="food-bar">
+        <div class="food-label">🍜 อาหาร & ☕ คาเฟ่ Matsumoto</div>
+        <div class="food-grid">
+          <div class="food-item"><div class="food-name">☕ Coffee Marumo (ปี 1958)</div><div class="food-desc">Kissaten ดั้งเดิม เก้าอี้ไม้ ดนตรีแจ๊ส | ปิดจันทร์</div></div>
+          <div class="food-item"><div class="food-name">☕ Sioribi</div><div class="food-desc">ในตึก Printing Press เก่า | Dark roast + Scone</div></div>
+          <div class="food-item"><div class="food-name">🍜 Marushu <span class="badge-hot">⭐⭐</span></div><div class="food-desc">Soba ทำมือ เจ้าของอธิบายวิธีกิน | EN menu</div></div>
+          <div class="food-item"><div class="food-name">🍜 Mensho Sakura <span class="badge-hot">⭐</span></div><div class="food-desc">Black Kuro-Miso Ramen + Gyoza ดัง</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ DAY 5-6 TAB ═══════════ -->
+<div id="day5" class="section content">
+
+  <div class="day-card open">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-num" style="background:#3C3489;color:#fff">5</div>
+      <div class="day-info">
+        <div class="day-title">27 Oct — Kamikochi → Hirayu Onsen 🏔️</div>
+        <div class="day-meta">🌙 Hirayu Onsen &nbsp;|&nbsp; ⚠️ จองก่อนเลย!</div>
+      </div>
+      <div class="day-drive">🚗 ~1.5 ชม.</div>
+      <div class="chevron">▾</div>
+    </div>
+    <div class="day-body">
+      <div class="tl">
+        <div class="tl-row tl-drive-row"><div class="tl-left"><span class="tl-time">07:30</span></div><div class="tl-right"><span class="tl-drive-txt">🚗 Matsumoto → Sawando (จุดจอดรถ)</span><span class="tl-drive-dist">~45km / ~1ชม.</span></div></div>
+        <div class="tl-row tl-drive-row"><div class="tl-left"><span class="tl-time">08:30</span></div><div class="tl-right"><span class="tl-drive-txt">🚌 บัสสาธารณะ Sawando → Kamikochi</span><span class="tl-drive-dist">¥1,300/คน ~30 นาที | รถส่วนตัวห้ามเข้า!</span></div></div>
+        <div class="tl-row"><div class="tl-left"><span class="tl-time">09:00</span><span class="tl-dur">4 ชม.</span></div><div class="tl-right"><div class="tl-name">🏔️ Kamikochi ⭐ สวยที่สุดในทริป! <span class="rating">⭐ 4.8</span></div><div class="tl-note">หุบเขา Alpine 1,500m | แม่น้ำ Azusa ใสกระจ่าง | ใบไม้แดงเต็มหุบ | อากาศ ~5–8°C เตรียมเสื้อหนาว! | เดิน Kappa Bridge</div></div></div>
+        <div class="tl-row tl-drive-row"><div class="tl-left"><span class="tl-time">13:30</span></div><div class="tl-right"><span class="tl-drive-txt">🚌 บัสกลับ Sawando → 🚗 ขับต่อ Hirayu</span><span class="tl-drive-dist">~25km / ~40 นาที</span></div></div>
+        <div class="tl-row"><div class="tl-left"><span class="tl-time">15:00</span></div><div class="tl-right"><div class="tl-name">🛀 Hirayu Onsen — เช็คอิน Ryokan</div><div class="tl-note">แช่ Rotenburo กลางแจ้งท่ามกลางภูเขา | อาหารเย็น Kaiseki รวมในโรงแรม</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card open">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-num" style="background:#993C1D;color:#fff">6</div>
+      <div class="day-info">
+        <div class="day-title">28 Oct — Furukawa + Gero Onsen → Takayama ♨️</div>
+        <div class="day-meta">🌙 Takayama (คืนแรก)</div>
+      </div>
+      <div class="day-drive">🚗 ~2.5 ชม.</div>
+      <div class="chevron">▾</div>
+    </div>
+    <div class="day-body">
+      <div class="tl">
+        <div class="tl-row tl-drive-row"><div class="tl-left"><span class="tl-time">09:00</span></div><div class="tl-right"><span class="tl-drive-txt">🚗 Hirayu → Takayama (เช็คอิน) → Furukawa</span><span class="tl-drive-dist">~45km / ~45 นาที</span></div></div>
+        <div class="tl-row"><div class="tl-left"><span class="tl-time">10:00</span><span class="tl-dur">2 ชม.</span></div><div class="tl-right"><div class="tl-name">🐟 Furukawa — Setogawa Canal <span class="rating">⭐ 4.5</span></div><div class="tl-note">คลองใสปลาคาร์ปว่าย | บ้าน Kura สีขาว | ให้อาหารปลา ¥100 | เงียบสงบมาก</div></div></div>
+        <div class="tl-row tl-drive-row"><div class="tl-left"><span class="tl-time">12:00</span></div><div class="tl-right"><span class="tl-drive-txt">🚗 Furukawa → Gero Onsen</span><span class="tl-drive-dist">~50km / ~1ชม.</span></div></div>
+        <div class="tl-row"><div class="tl-left"><span class="tl-time">13:00</span><span class="tl-dur">2.5 ชม.</span></div><div class="tl-right"><div class="tl-name">♨️ Gero Onsen — Day-use</div><div class="tl-note">1 ใน 3 ออนเซ็นดังที่สุดของญี่ปุ่น | Rotenburo ริมแม่น้ำ Hida | ¥600–1,500</div></div></div>
+        <div class="tl-row tl-drive-row"><div class="tl-left"><span class="tl-time">16:30</span></div><div class="tl-right"><span class="tl-drive-txt">🚗 Gero Onsen → Takayama</span><span class="tl-drive-dist">~50km / ~1ชม.</span></div></div>
+      </div>
+      <div class="food-bar">
+        <div class="food-label">🍜 อาหาร & ☕ คาเฟ่ Takayama</div>
+        <div class="food-grid">
+          <div class="food-item"><div class="food-name">☕ Hids' Cafe & Bar <span class="badge-hot">ดีที่สุด</span></div><div class="food-desc">Best coffee Takayama! เปิด 07:30 | Vegan menu</div></div>
+          <div class="food-item"><div class="food-name">☕ Falo Coffee Brewers</div><div class="food-desc">Scandinavian interior | Single-origin beans</div></div>
+          <div class="food-item"><div class="food-name">🍜 Menya Toto <span class="badge-hot">⭐</span></div><div class="food-desc">Takayama Ramen เชฟ 35 ปี | EN menu</div></div>
+          <div class="food-item"><div class="food-name">🥢 Aji-hei <span class="badge-hot">⭐</span></div><div class="food-desc">Tofu Steak สูตรลับ + Grilled Hoba Miso กับปลา</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ DAY 7-8 TAB ═══════════ -->
+<div id="day7" class="section content">
+
+  <div class="day-card open">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-num" style="background:#3B6D11;color:#fff">7</div>
+      <div class="day-info">
+        <div class="day-title">29 Oct — Shirakawa-go + Hida no Sato 🌿</div>
+        <div class="day-meta">🌙 Takayama (คืนที่สอง)</div>
+      </div>
+      <div class="day-drive">🚗 ไปกลับ ~1.5 ชม.</div>
+      <div class="chevron">▾</div>
+    </div>
+    <div class="day-body">
+      <div class="tl">
+        <div class="tl-row tl-drive-row"><div class="tl-left"><span class="tl-time">08:30</span></div><div class="tl-right"><span class="tl-drive-txt">🚗 Takayama → Shirakawa-go</span><span class="tl-drive-dist">~35km / ~50 นาที</span></div></div>
+        <div class="tl-row"><div class="tl-left"><span class="tl-time">09:20</span><span class="tl-dur">30 นาที</span></div><div class="tl-right"><div class="tl-name">📸 Shiroyama Observation Deck</div><div class="tl-note">ขึ้นก่อนรถทัวร์มา 10:00 | ถ่ายภาพทั้งหมู่บ้าน | ¥200 กระเช้า</div></div></div>
+        <div class="tl-row"><div class="tl-left"><span class="tl-time">10:00</span><span class="tl-dur">3.5 ชม.</span></div><div class="tl-right"><div class="tl-name">🏡 Shirakawa-go UNESCO 🏛️ <span class="rating">⭐ 4.5</span></div><div class="tl-note">หมู่บ้าน Gassho-zukuri มรดกโลก | เข้าบ้าน ¥300–400 | ชิม Mitarashi Dango</div></div></div>
+        <div class="tl-row tl-drive-row"><div class="tl-left"><span class="tl-time">14:00</span></div><div class="tl-right"><span class="tl-drive-txt">🚗 กลับ Takayama → Hida no Sato</span><span class="tl-drive-dist">~35km / ~50 นาที</span></div></div>
+        <div class="tl-row"><div class="tl-left"><span class="tl-time">15:30</span><span class="tl-dur">1.5 ชม.</span></div><div class="tl-right"><div class="tl-name">🏘️ Hida no Sato Folk Village <span class="rating">⭐ 4.5</span></div><div class="tl-note">เปิด 08:30–17:00 | บ้าน Gassho-zukuri กลางแจ้ง | เงียบสงบกว่า Shirakawa มาก</div></div></div>
+        <div class="tl-row"><div class="tl-left"><span class="tl-time">17:00</span></div><div class="tl-right"><div class="tl-name">🛍️ ช้อปของฝาก Sanmachi Suji</div><div class="tl-note">Sake | Hida Beef Jerky | Miso Paste | ตุ๊กตา Sarubobo</div></div></div>
+      </div>
+      <div class="food-bar">
+        <div class="food-label">🍜 อาหาร & ☕ คาเฟ่</div>
+        <div class="food-grid">
+          <div class="food-item"><div class="food-name">⭐ Sumikyu <span class="badge-m">Michelin</span></div><div class="food-desc">Soba ทำมือ 4 ชั่วอายุคน | ไปก่อน 17:30 มักหมด!</div></div>
+          <div class="food-item"><div class="food-name">☕ Sway Coffee Roastery</div><div class="food-desc">Machiya เก่า Interior modern | Canelé + Soft Serve</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card open">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-num" style="background:#185FA5;color:#fff">8</div>
+      <div class="day-info">
+        <div class="day-title">30 Oct — Morning Market → Nagoya 🏙️</div>
+        <div class="day-meta">🌙 Nagoya</div>
+      </div>
+      <div class="day-drive">🚗 ~2 ชม.</div>
+      <div class="chevron">▾</div>
+    </div>
+    <div class="day-body">
+      <div class="tl">
+        <div class="tl-row"><div class="tl-left"><span class="tl-time">07:30</span><span class="tl-dur">90 นาที</span></div><div class="tl-right"><div class="tl-name">🛒 Jinya-mae Morning Market + Sanmachi <span class="rating">⭐ 4.5</span></div><div class="tl-note">เปิด 06:00–12:00 Cash only | มิโซะ ผักผลไม้ local | Sanmachi ก่อน 08:00 เงียบสงบ</div></div></div>
+        <div class="tl-row tl-drive-row"><div class="tl-left"><span class="tl-time">10:00</span></div><div class="tl-right"><span class="tl-drive-txt">🚗 Takayama → Nagoya</span><span class="tl-drive-dist">~150km / ~2ชม.</span></div></div>
+        <div class="tl-row"><div class="tl-left"><span class="tl-time">12:30</span><span class="tl-dur">90 นาที</span></div><div class="tl-right"><div class="tl-name">🏯 Nagoya Castle <span class="rating">⭐ 4.2</span></div><div class="tl-note">เปิด 09:00–16:30 | ¥500 | Hommaru Palace สวยมาก</div></div></div>
+        <div class="tl-row tl-drive-row"><div class="tl-left"><span class="tl-time">14:30</span></div><div class="tl-right"><span class="tl-drive-txt">🚗 Nagoya Castle → Atsuta Shrine</span><span class="tl-drive-dist">~8km / ~20 นาที</span></div></div>
+        <div class="tl-row"><div class="tl-left"><span class="tl-time">15:00</span><span class="tl-dur">90 นาที</span></div><div class="tl-right"><div class="tl-name">⛩️ Atsuta-jingu Shrine <span class="rating">⭐ 4.5</span></div><div class="tl-note">ศาลเจ้า Shinto อันดับ 2 ญี่ปุ่น | ต้นสนอายุ 1,300 ปี | เปิดฟรีตลอด 24 ชม.</div></div></div>
+      </div>
+      <div class="food-bar">
+        <div class="food-label">🍜 อาหาร & ☕ คาเฟ่ Nagoya</div>
+        <div class="food-grid">
+          <div class="food-item"><div class="food-name">🍜 Yamamotoya Honten <span class="badge-hot">⭐⭐</span></div><div class="food-desc">Miso Nikomi Udon เจ้าดัง | EN menu | ใกล้ Station</div></div>
+          <div class="food-item"><div class="food-name">⭐ Tempura Ayame <span class="badge-m">Michelin</span></div><div class="food-desc">Tempura ดีที่สุด Nagoya | 6 ที่นั่ง จองล่วงหน้า!</div></div>
+          <div class="food-item"><div class="food-name">☕ Komeda Coffee <span class="badge-hot">ต้นตำรับ</span></div><div class="food-desc">Morning Set ซื้อกาแฟได้ขนมปัง Ogura ฟรี!</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ DAY 9 TAB ═══════════ -->
+<div id="day9" class="section content">
+  <div class="day-card open">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-num" style="background:#444441;color:#fff">9</div>
+      <div class="day-info">
+        <div class="day-title">31 Oct — Nagoya → คืนรถ Tokyo 🏠</div>
+        <div class="day-meta">⚠️ ต้องถึงก่อน 12:00!</div>
+      </div>
+      <div class="day-drive">🚗 ~3.5–4 ชม.</div>
+      <div class="chevron">▾</div>
+    </div>
+    <div class="day-body">
+      <div class="tl">
+        <div class="tl-row"><div class="tl-left"><span class="tl-time">07:30</span></div><div class="tl-right"><div class="tl-name">☕ Komeda Coffee — Nagoya Morning Set สุดท้าย</div><div class="tl-note">ซื้อกาแฟได้ขนมปัง Ogura ฟรี | ของดัง Nagoya หาไม่ได้ที่อื่น</div></div></div>
+        <div class="tl-row tl-drive-row"><div class="tl-left"><span class="tl-time">08:00</span></div><div class="tl-right"><span class="tl-drive-txt">🚗 Nagoya → Tokyo (Tomei Expressway)</span><span class="tl-drive-dist">~370km / ~3.5–4ชม. | แวะ Gotemba PA วิว Fuji 🗻</span></div></div>
+        <div class="tl-row"><div class="tl-left"><span class="tl-time">ก่อน 12:00</span></div><div class="tl-right"><div class="tl-name">✅ ถึง Tokyo — คืนรถ!</div><div class="tl-note">ออก 08:00 มีเวลาพอสบาย | จบทริปสวยงาม 🍂</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ ALL FOOD TAB ═══════════ -->
+<div id="food" class="section content">
+  <div class="sec-label">📍 Karuizawa</div>
+  <div class="day-card"><div class="tl">
+    <div class="tl-row"><div class="tl-left"><span class="tl-time">🥐</span></div><div class="tl-right"><div class="tl-name">French Bakery</div><div class="tl-note">เบเกอรี่ดั้งเดิม John Lennon เคยมา | ใน Ginza Street</div></div></div>
+    <div class="tl-row"><div class="tl-left"><span class="tl-time">☕</span></div><div class="tl-right"><div class="tl-name">Harunire Terrace</div><div class="tl-note">คาเฟ่ Stylish ริมลำธาร Hoshino Area</div></div></div>
+    <div class="tl-row"><div class="tl-left"><span class="tl-time">🍜</span></div><div class="tl-right"><div class="tl-name">Kawakami-an</div><div class="tl-note">Soba เส้นทำมือชื่อดัง Karuizawa</div></div></div>
+  </div></div>
+
+  <div class="sec-label">📍 Kawaguchiko</div>
+  <div class="day-card"><div class="tl">
+    <div class="tl-row"><div class="tl-left"><span class="tl-time">🥘</span></div><div class="tl-right"><div class="tl-name">Hoto Fudo <span class="badge-hot">⭐ ดัง</span></div><div class="tl-note">ก๋วยเตี๋ยวฟักทองร้อนๆ ชาวบ้านดั้งเดิม</div></div></div>
+  </div></div>
+
+  <div class="sec-label">📍 Matsumoto</div>
+  <div class="day-card"><div class="tl">
+    <div class="tl-row"><div class="tl-left"><span class="tl-time">☕</span></div><div class="tl-right"><div class="tl-name">Coffee Marumo (ปี 1958)</div><div class="tl-note">Kissaten ดั้งเดิม เก้าอี้ไม้ ดนตรีแจ๊ส | ปิดจันทร์</div></div></div>
+    <div class="tl-row"><div class="tl-left"><span class="tl-time">☕</span></div><div class="tl-right"><div class="tl-name">Sioribi</div><div class="tl-note">ในตึก Printing Press เก่า | Dark roast + Scone</div></div></div>
+    <div class="tl-row"><div class="tl-left"><span class="tl-time">🍜</span></div><div class="tl-right"><div class="tl-name">Marushu <span class="badge-hot">⭐⭐</span></div><div class="tl-note">Soba ทำมือ เจ้าของอธิบายวิธีกิน | EN menu</div></div></div>
+    <div class="tl-row"><div class="tl-left"><span class="tl-time">🍜</span></div><div class="tl-right"><div class="tl-name">Mensho Sakura <span class="badge-hot">⭐</span></div><div class="tl-note">Black Kuro-Miso Ramen + Gyoza ดัง</div></div></div>
+  </div></div>
+
+  <div class="sec-label">📍 Takayama</div>
+  <div class="day-card"><div class="tl">
+    <div class="tl-row"><div class="tl-left"><span class="tl-time">☕</span></div><div class="tl-right"><div class="tl-name">Hids' Cafe & Bar <span class="badge-hot">ดีที่สุด</span></div><div class="tl-note">Best coffee Takayama! เปิด 07:30 | Vegan menu | ใกล้ Station East Exit</div></div></div>
+    <div class="tl-row"><div class="tl-left"><span class="tl-time">☕</span></div><div class="tl-right"><div class="tl-name">Falo Coffee Brewers</div><div class="tl-note">Third wave Scandinavian interior | IG: @falo_coffee_brewers</div></div></div>
+    <div class="tl-row"><div class="tl-left"><span class="tl-time">☕</span></div><div class="tl-right"><div class="tl-name">Sway Coffee Roastery</div><div class="tl-note">Machiya เก่า Interior modern | Canelé + Soft Serve</div></div></div>
+    <div class="tl-row"><div class="tl-left"><span class="tl-time">⭐</span></div><div class="tl-right"><div class="tl-name">Sumikyu <span class="badge-m">Michelin</span></div><div class="tl-note">Soba ทำมือ 4 ชั่วอายุคน | Sansai Zaru Soba | ไปก่อน 17:30!</div></div></div>
+    <div class="tl-row"><div class="tl-left"><span class="tl-time">🍜</span></div><div class="tl-right"><div class="tl-name">Menya Toto <span class="badge-hot">⭐</span></div><div class="tl-note">Takayama Ramen เชฟ 35 ปี | EN menu | ใกล้ Morning Market</div></div></div>
+    <div class="tl-row"><div class="tl-left"><span class="tl-time">🥢</span></div><div class="tl-right"><div class="tl-name">Aji-hei <span class="badge-hot">⭐</span></div><div class="tl-note">Tofu Steak สูตรลับ + Grilled Hoba Miso กับปลา</div></div></div>
+  </div></div>
+
+  <div class="sec-label">📍 Nagoya</div>
+  <div class="day-card"><div class="tl">
+    <div class="tl-row"><div class="tl-left"><span class="tl-time">☕</span></div><div class="tl-right"><div class="tl-name">Komeda Coffee <span class="badge-hot">ต้นตำรับ</span></div><div class="tl-note">Morning Set ซื้อกาแฟได้ขนมปัง Ogura ฟรี | ของดัง Nagoya</div></div></div>
+    <div class="tl-row"><div class="tl-left"><span class="tl-time">🍜</span></div><div class="tl-right"><div class="tl-name">Yamamotoya Honten <span class="badge-hot">⭐⭐</span></div><div class="tl-note">Miso Nikomi Udon เจ้าดัง | EN menu | เปิด 10:00–21:30</div></div></div>
+    <div class="tl-row"><div class="tl-left"><span class="tl-time">⭐</span></div><div class="tl-right"><div class="tl-name">Tempura Ayame <span class="badge-m">Michelin ⭐</span></div><div class="tl-note">Tempura ดีที่สุด Nagoya | 6 ที่นั่งเท่านั้น ต้องจองล่วงหน้าหลายเดือน!</div></div></div>
+  </div></div>
+</div>
+
+<!-- ═══════════ TIPS TAB ═══════════ -->
+<div id="tips" class="section content">
+  <div class="tips-grid">
+    <div class="tip-item">
+      <div class="tip-icon" style="background:var(--amber-dim)">💳</div>
+      <div class="tip-body"><div class="tip-title">ETC Card</div><div class="tip-desc">ซื้อก่อนออกเดินทาง ประหยัดค่าทางด่วนตลอดทริป ใช้แทนการจ่ายเงินสดที่ด่าน</div></div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-icon" style="background:var(--blue-dim)">📋</div>
+      <div class="tip-body"><div class="tip-title">International Driving Permit (IDP)</div><div class="tip-desc">ทำก่อนเดินทางที่กรมขนส่ง ต้องมีก่อนรับรถ ขับชิดซ้าย พวงมาลัยขวา</div></div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-icon" style="background:var(--teal-dim)">🚄</div>
+      <div class="tip-body"><div class="tip-title">Shinkansen Karuizawa</div><div class="tip-desc">จองที่นั่งล่วงหน้า ช่วง Oct weekend เต็มเร็วมาก แนะนำจองผ่าน JR app หรือ Klook</div></div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-icon" style="background:var(--green-dim)">🚌</div>
+      <div class="tip-body"><div class="tip-title">Kamikochi — รถส่วนตัวห้ามเข้า!</div><div class="tip-desc">จอดรถที่ Sawando แล้วต่อบัสสาธารณะเท่านั้น ¥1,300/คน ซื้อตั๋ว round-trip</div></div>
+    </div>
+    <div class="tip-item" style="border-color: rgba(255,107,107,0.3);">
+      <div class="tip-icon" style="background:var(--coral-dim)">♨️</div>
+      <div class="tip-body"><div class="tip-title">Hirayu Onsen — จองก่อนเลย!</div><div class="tip-desc">Ryokan เล็กมาก 1 คืนช่วง Oct เต็มเร็วมาก แนะนำแบบมี Rotenburo ส่วนตัวสำหรับคู่รัก</div></div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-icon" style="background:var(--purple-dim)">⭐</div>
+      <div class="tip-body"><div class="tip-title">Sumikyu Takayama</div><div class="tip-desc">ร้าน Michelin ปิดเมื่อ Soba หมด ไปก่อน 17:30 ดีสุด อาจจอง online ได้บ้าง</div></div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-icon" style="background:var(--purple-dim)">🍤</div>
+      <div class="tip-body"><div class="tip-title">Tempura Ayame Nagoya</div><div class="tip-desc">Michelin 1 Star 6 ที่นั่งเท่านั้น จองล่วงหน้าหลายเดือน ถ้าจองได้ไปเลย!</div></div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-icon" style="background:var(--amber-dim)">⏰</div>
+      <div class="tip-body"><div class="tip-title">31 Oct — คืนรถก่อน 12:00</div><div class="tip-desc">ออกจาก Nagoya 08:00 ใช้เวลา ~3.5–4 ชม. ขับ Tomei Expressway ถึง Tokyo พอดี</div></div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-icon" style="background:var(--teal-dim)">📱</div>
+      <div class="tip-body"><div class="tip-title">Apps ที่ควรมี</div><div class="tip-desc">Google Maps (นำทาง) | Google Translate (กล้องแปล) | Japan Transit (รถไฟ) | Tabelog (ร้านอาหาร) | JR Pass App (Shinkansen)</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  🍂 Japan Autumn Road Trip · 23–31 October · คู่รัก · ~1,065 km
+</div>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function toggleDay(header) {
+  const card = header.parentElement;
+  card.classList.toggle('open');
+}
+</script>
+</body>
+</html>
